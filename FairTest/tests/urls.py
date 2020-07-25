@@ -1,5 +1,5 @@
 from django.urls import path, re_path
-
+from . import FairTest_FaceR
 from . import views
 
 urlpatterns = [
