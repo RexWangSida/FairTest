@@ -10,8 +10,7 @@ def loginAuth(request):
         if User.objects.filter(email=email).exists():
             if User.objects.get(email = email).password == password:
                 print(User.objects.get(email = email).firstName)
-                with open('TEMP.csv','w+') as file:
-                    writer=csv.writer(file)
+                with open('face_roc/TEMP.csv','w+') as file:
                     file.write(f'{email}')
                 return HttpResponse(json.dumps({'name':User.objects.get(email = email).firstName}), content_type="application/json")
         return HttpResponse(json.dumps({'msg':'The email you entered is not registered with us!'}), content_type="application/json")

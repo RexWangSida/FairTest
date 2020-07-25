@@ -8,7 +8,7 @@ import time
 import threading
 #Find the specific student picture
 def imgloc_one(email_stu):
-    path = 'ImagesAttendence'
+    path = 'face_roc/ImagesAttendence'
     myList = os.listdir(path)
     print(myList)
     for cl in myList:
@@ -22,15 +22,23 @@ def encoding(Tester_img):
     return Tester_img_enc
 #Real time camera Face_recognization
 
-def Cam_recog(cap,Tester_img_encode,Tester_email,control1,Control2):
+def Cam_recog():
+    cap = cv2.VideoCapture(0)
+    control1=False
+    Control2=True
     start_time=0
     warn=0
+    with open('face_roc/TEMP.csv','r+') as f:
+        Tester_email = f.readline()
+        print(Tester_email)
+    Tester_img=imgloc_one(Tester_email)
+    Tester_img_encode=encoding(Tester_img)
     while Control2 and warn<6:
         success,img = cap.read()
         #img = captureScreen()
         imgS = cv2.resize(img,(0,0),None,0.25,0.25)
         imgS = cv2.cvtColor(imgS, cv2.COLOR_BGR2RGB)
-    
+        
         facesCurFrame = face_recognition.face_locations(imgS)
         encodesCurFrame = face_recognition.face_encodings(imgS,facesCurFrame)
         #print(facesCurFrame)
@@ -79,6 +87,7 @@ def Cam_recog(cap,Tester_img_encode,Tester_email,control1,Control2):
             
         cv2.putText(img,'The Warning chance left '+str(5-warn),(50,50),cv2.FONT_HERSHEY_COMPLEX,1,(0,0,255),2)
         cv2.imshow('Webcam',img)
+        cv2.imwrite('FairTest/static/images/rec.jpg',img)
         cv2.waitKey(1)
 #Attence log.csv build 
 def attendence_Scheck(name,message):
@@ -96,15 +105,5 @@ def attendence_Scheck(name,message):
 
 
 if __name__ == '__main__':
-    Tester_email="Grace Liu"
-    Tester_img=imgloc_one('Grace Liu')
-    Tester_img_encode=encoding(Tester_img)
-    print("Encode complete")
-    cap = cv2.VideoCapture(0)
-    gap_time=0
-    control1=False
-    Control2=True
-    Cam_recog(cap,Tester_img_encode,Tester_email,control1,Control2)
-
-
+    Cam_recog()
         
