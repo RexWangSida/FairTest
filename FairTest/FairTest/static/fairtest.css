@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+
+body {
+  font-family: Roboto, sans-serif;
+  margin: 0;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  background-image: linear-gradient(to top, rgb(245, 129, 96) 0%, rgb(254, 225, 203) 100%);
+  background-size: cover;
+}
+
+.card {
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0px 14px 80px rgba(0, 35, 58, 0.5);
+  display: flex;
+  flex-direction: row;
+  border-radius: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  height: 440px;
+  width: 500px;
+}
+
+.card h2 {
+  margin: 0;
+  padding: 0 1rem;
+}
+
+.card .title {
+  padding: 1rem;
+  color: green;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.card .desc {
+  padding: 0.5rem 1rem;
+  font-size: 12px;
+}
+
+.card .actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+}
+
+path {
+  fill: white;
+}
+
+
+
+#title {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font: 200px Comic Sans MS, Comic Sans, cursive;
+  text-shadow: 0px 14px 80px rgb(254, 225, 203);
+  letter-spacing: 0px;
+  color: #fff;
+  font-size: 1000%;
+  margin: 0 auto;
+  transition: 0.3s;
+}
+
+#title:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -45%);
+}
+
+#title:hover {
+  filter: opacity(30%)
+}
+
+#slogan{
+  letter-spacing: -2px;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  color: rgb(200, 100, 70);
+  display: flex;
+  position: absolute;
+  top: 70%;
+  left: 23%;
+}
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center; }
+  footerspan {
+    font-size: xx-small; }

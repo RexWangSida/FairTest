@@ -1,0 +1,26 @@
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <link rel="icon" type="image/x-ico" href="{% static 'pink.ico'%}">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'fairtest.css' %}">
+  {% block title %}<title>FairTest</title>{% endblock %}
+</head>
+
+<body>
+  {% block bodyBlock %}
+  <a id="title" href="./login" style="text-decoration:none;">
+    {% load static %}
+    <img src="{% static 'images/Logo.png' %}" width="900" height="auto">
+  </a>
+  <h2 id="slogan"><b>When the courses become online, we make your test fair.</b></h1>
+  {% endblock %}
+  <footer>
+    <span>Copyright &copy; 2020 FairTest</span>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+.navbar {
+  background-color: rgb(245, 129, 96); }
+  .navbar a {
+    color: #ffffff; }
+  .navbar .navbar-icon {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 5%;
+    margin: 4px 0; }
+
+#nav-bar-home {
+  background-color: rgb(245, 129, 96);
+  border-color: rgb(245, 129, 96); }
+
+#collapse-btn {
+  border: none;
+  background-color: rgb(245, 129, 96);
+  box-shadow: rgb(245, 129, 96); }
+
+#timer {
+  text-align: right;
+  padding-right: 1.5rem; }
+
+#question {
+  padding-bottom: 0.8rem; }
+
+#progress-bar {
+  background-color: rgb(245, 129, 96); }
+
+.nav-btn {
+  left: 2%;
+  bottom: 5rem;
+  position: fixed; }
+  .nav-btn #prev-q {
+    margin-right: 1rem;
+    width: 100px;
+    background-color: #e6e6e6;
+    color: grey; }
+  .nav-btn #next-q {
+    margin-left: 1rem;
+    width: 100px;
+    background-color: rgb(245, 129, 96);
+    border-color: rgb(245, 129, 96); }
+  .nav-btn #submit-btn-1 {
+    margin-left: 2rem;
+    border-color: #ba5415;
+    background-color: #ba5415; }
+
+#videoElement {
+  width: 20rem;
+  height: 15rem;
+  background-color: rgb(245, 129, 96); }
+
+#container {
+  width: 20rem;
+  height: 15rem;
+  position: fixed;
+  bottom: 4rem;
+  right: 5rem; }
+
+.test-container {
+  padding-left: 10%;
+  padding-right: 10%; }
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(245, 129, 96);
+  color: white;
+  text-align: center; }
+  footerspan {
+    font-size: xx-small; }
+
+.submit-modal-btn {
+  border-color: rgb(245, 129, 96);
+  background-color: rgb(245, 129, 96); }
+
+#after-submit {
+  position: fixed;
+  width: 30rem;
+  left: 25%;
+  top: 30%; }
+
+#after-fail {
+  position: fixed;
+  width: 30rem;
+  left: 25%;
+  top: 30%; }
+
+@media screen and (min-width: 1000px) {
+  .navbar-btn {
+    display: none; } }
+
+@media screen and (max-width: 800px) {
+  #container {
+    bottom: 10rem; } }
+
+#test-list {
+  position: absolute;
+  margin-top: 5%;
+  width: 40%;
+  margin-left: 27%; }
+
+.list-group-item.active {
+  background-color: rgb(245, 129, 96);
+  border-color: rgb(245, 129, 96); }
+
+  table {
+  	display: table;
+  }
+  table tr {
+  	display: table-cell;
+  }
+  table tr td {
+  	display: block;
+  }

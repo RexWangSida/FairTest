@@ -1,0 +1,89 @@
+{% extends 'index.html' %}
+{% block title %}
+    <title>Login - FairTest</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/jquery.cookie.js"></script>
+{% endblock %}
+{% block bodyBlock %}
+<div class="card">
+  <div class="container" style="margin: 60px;">
+    <form>
+      <div class="form-group">
+
+        <label style="display: block; text-align:center;"><b style="color:rgb(247,109,89);">Please Login Using School Email and Password</b></label>
+        <hr style="background-color:rgb(247,109,89);">
+        <label for="exampleInputEmail1" style="color:rgb(247,109,89);">School Email</label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1" style="color:rgb(247,109,89);">Password</label>
+        <input type="password" class="form-control" id="password">
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="check">
+        <label class="form-check-label" for="defaultCheck1" style="color:rgba(247,109,89,0.4);">
+          Check this means you understand that we use camera and cursor capture to detect cheating.
+        </label>
+      </div>
+      <div style="text-align: center;margin-top:10px;" >
+        <button type="button"style="display: inline-block; color:rgb(255,255,255); background-color:rgb(247,109,89);" class="btn" onclick="email_click()">Login</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+ function email_click(){
+   var email = document.getElementById("email").value;
+   var password = document.getElementById("password").value;
+   if (validateEmail(email)){
+     if (document.getElementById("check").checked){
+       validateLogin(email, password);
+    }
+    else{
+      alert("You must agree to our policy and check the checkbox below!");
+    }
+   }
+   else{
+     alert("You should use an email!")
+   }
+ }
+ function validateEmail(email){
+  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
+function validateLogin(email,password){
+  $.ajax({
+    type:'POST',
+    url:'{% url "loginOnHold" %}',
+    data:{
+      email:email,
+      password: password,
+    },
+    headers: {'X-CSRFtoken': $.cookie('csrftoken')},
+    success:function(data) {
+      $.ajax({
+        type:'POST',
+        url:'/account/'.concat(data.name),
+        data:{
+          name: data.name,
+        },
+        headers: {'X-CSRFtoken': $.cookie('csrftoken')},
+        success:function(newdata) {
+          $("html").html(newdata);
+          window.location.hash = data.name;
+        },
+        error:function() {
+        },
+      });
+    },
+    error:function() {
+      alert("The server is off!")
+    },
+  });
+}
+</script>
+{% endblock %}
