@@ -22,7 +22,7 @@ def encoding(Tester_img):
     return Tester_img_enc
 #Real time camera Face_recognization
 
-def Cam_recog():
+def Cam_recog(request):
     cap = cv2.VideoCapture(0)
     control1=False
     Control2=True
