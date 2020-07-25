@@ -12,5 +12,7 @@
 `pip install django-mysql`
 
 - superuser
+
 -username: rex
+
 -password: 108740
