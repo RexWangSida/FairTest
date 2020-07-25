@@ -13,22 +13,6 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href= {% static 'TestEntry.css' %} />
-    <script>
-      function redirect(){
-        $.ajax({
-          type:'POST',
-          url:'/testroom/{{ name }}',
-          data:{
-            name: '{{ name }}',
-          },
-          headers: {'X-CSRFtoken': $.cookie('csrftoken')},
-          success:function(newdata) {
-          },
-          error:function() {
-          },
-        });
-      }
-    </script>
   </head>
 
   <body>
@@ -92,5 +76,21 @@
     <footer>
       <span>Copyright &copy; 2020 FairTest</span>
     </footer>
+    <script>
+      function redirect(){
+        $.ajax({
+          type:'POST',
+          url:'/testroom/{{ name }}',
+          data:{
+            name: '{{ name }}',
+          },
+          headers: {'X-CSRFtoken': $.cookie('csrftoken')},
+          success:function(newdata) {
+          },
+          error:function() {
+          },
+        });
+      }
+    </script>
   </body>
 </html>

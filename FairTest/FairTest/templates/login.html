@@ -100,20 +100,7 @@ function validateLogin(email,password){
     headers: {'X-CSRFtoken': $.cookie('csrftoken')},
     success:function(data) {
       if(data.val == 0){
-                $.ajax({
-                  type:'POST',
-                  url:'/account/'.concat(data.name),
-                  data:{
-                    name: data.name,
-                  },
-                  headers: {'X-CSRFtoken': $.cookie('csrftoken')},
-                  success:function(newdata) {
-                    $("html").html(newdata);
-                    window.location.hash = data.name;
-                  },
-                  error:function() {
-                  },
-                });
+          window.location.replace("/account/".concat(data.name));
 
 
               } else {
