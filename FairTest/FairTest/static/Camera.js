@@ -1,6 +1,5 @@
 var videoTracks;
 var video = document.querySelector("#videoElement");
-var canvas = document.getElementById("snapshot");
 
 export function openCamera() {
   if (navigator.mediaDevices.getUserMedia) {

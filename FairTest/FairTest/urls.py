@@ -21,5 +21,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('pages.urls')),
     path('', include('users.urls')),
-    url(r'^face_roc$',FairTest_FaceR.Contro2_change)
 ]

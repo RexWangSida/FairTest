@@ -72,4 +72,22 @@ function startTest(testIndex) {
   };
 }
 
+function trigger() {
+  setTimeout(function () {
+    $.post({
+      url: "/face_roc",
+      data: {
+        message: true,
+      },
+      success: function (callback) {
+        alert("BHHHH");
+      },
+      error: function (callback) {
+        alert("asda");
+      },
+    });
+  }, 300);
+}
+
+trigger();
 generateTestList(testList);
