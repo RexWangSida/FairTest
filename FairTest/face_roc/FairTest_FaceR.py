@@ -26,11 +26,11 @@ def encoding(Tester_img):
 def Contro2_change(request):
     global Control2
     mes=request.POST['message']
-    if mes:
+    if mes=='true':
         Control2==True
         return HttpResponse(res)
         #Cam_recog()
-    elif mes==False:
+    elif mes=='false':
         Control2==False
     
 def Cam_recog():
