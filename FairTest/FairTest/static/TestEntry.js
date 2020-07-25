@@ -3,6 +3,8 @@ import testList from "./TestSet.js";
 import { navBtn } from "./Navigation.js";
 import TestGenerator from "./TestGenerator.js";
 import Timer from "./Timer.js";
+import { openCamera } from "./Camera.js";
+
 navBtn();
 window.currentTest = -1;
 export function generateTestList(testList) {
@@ -28,20 +30,31 @@ function addItem(test) {
   item.id = test["testId"];
   if (test["status"] != 0) {
     item.classList.add("disabled");
+    item.innerHTML = test["name"];
+    if (test["status"] == 1) {
+      item.innerHTML = test["name"] + " (Submitted)";
+    } else if (test["status"] == 2) {
+      item.innerHTML = test["name"] + " (Failed)";
+    } else {
+      item.innerHTML = test["name"] + " (Expired)";
+    }
+  } else {
+    item.innerHTML = test["name"];
   }
-  item.innerHTML = test["name"];
+
   document.getElementById("list").appendChild(item);
 }
 
 function startTest(testIndex) {
+  openCamera();
   $("#test-list").toggle();
   $("#test-room").toggle();
   window.questionIndex = 0;
-  window.totWarning = 3;
+  window.totWarning = 2;
   window.testSet = testList[testIndex]["testSet"];
 
   TestGenerator(testList[testIndex]["testSet"]["question"][questionIndex]);
-  Timer();
+  Timer(testList[testIndex]["duration"]);
   progBar.setAttribute(
     "style",
     "width:" + questionIndex + (1 / testSet["questionNum"]) * 100 + "%"

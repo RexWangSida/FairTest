@@ -1,8 +1,5 @@
 import TestGenerator from "./TestGenerator.js";
 import { getAns, testSubmitted, refresh } from "./TestAction.js";
-import testList from "./TestSet.js";
-import Chat from "./Chat.js"
-
 $("#after-submit").toggle();
 $("#after-fail").toggle();
 $("#test-room").toggle();
@@ -50,16 +47,12 @@ export function navBtn() {
   });
 
   $("#submit-btn-2").on("click", function (e) {
-    testList[window.currentTest]["status"] = 1;
     $("#submit-modal").modal("toggle");
     $("#exampleModal").modal("toggle");
-    toggleTest();
     testSubmitted();
   });
 }
 
 export function toggleTest() {
   $("#test-room").toggle();
-  $(".chat-container").toggle();
 }
-Chat();

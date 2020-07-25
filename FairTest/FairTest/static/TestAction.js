@@ -1,9 +1,11 @@
 import { toggleTest } from "./Navigation.js";
 import testList from "./TestSet.js";
 import { generateTestList } from "./TestEntry.js";
-import TestGenerator from "./TestGenerator.js";
+import { closeCamera } from "./Camera.js";
+
 export default function testFailed() {
   testList[window.currentTest]["status"] = 2;
+  closeCamera();
   toggleTest();
   $("#after-fail").toggle();
 }
@@ -20,6 +22,9 @@ export function getAns() {
 }
 
 export function testSubmitted() {
+  testList[window.currentTest]["status"] = 1;
+  closeCamera();
+  toggleTest();
   $("#after-submit").toggle();
   window.onblur = "";
 }
