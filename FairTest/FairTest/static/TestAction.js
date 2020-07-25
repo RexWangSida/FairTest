@@ -32,3 +32,22 @@ export function testSubmitted() {
 export function refresh() {
   generateTestList(testList);
 }
+
+function triggerEnd() {
+  setTimeout(function () {
+    $.post({
+      url: "/",
+      headers: { "X-CSRFtoken": $.cookie("csrftoken") },
+
+      data: {
+        message: false,
+      },
+      success: function (newData) {
+        alert(newData["msg"]);
+      },
+      error: function (callback) {
+        alert(newData["msg"]);
+      },
+    });
+  }, 300);
+}

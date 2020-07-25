@@ -52,8 +52,7 @@ function startTest(testIndex) {
   window.questionIndex = 0;
   window.totWarning = 3;
   window.testSet = testList[testIndex]["testSet"];
-  trigger();
-
+  triggerStart();
   TestGenerator(testList[testIndex]["testSet"]["question"][questionIndex]);
   Timer(testList[testIndex]["duration"]);
   progBar.setAttribute(
@@ -81,7 +80,7 @@ function startTest(testIndex) {
   };
 }
 
-function trigger() {
+function triggerStart() {
   setTimeout(function () {
     $.post({
       url: "/face",
@@ -93,11 +92,33 @@ function trigger() {
       success: function (newData) {
         alert(newData["msg"]);
       },
-      error: function (callback) {
+      error: function (newData) {
         alert(newData["msg"]);
       },
     });
   }, 300);
 }
 
+function checkFace() {
+  beginCheck();
+}
+
+function beginCheck() {
+  setTimeout(function () {
+    $.get({
+      url: "/",
+      headers: { "X-CSRFtoken": $.cookie("csrftoken") },
+      success: function (newData) {
+        if (newData["ended"]) {
+          console.log("test ended");
+        } else {
+          beginCheck();
+        }
+      },
+      error: function (newData) {
+        alert(newData["msg"]);
+      },
+    });
+  }, 300);
+}
 generateTestList(testList);
