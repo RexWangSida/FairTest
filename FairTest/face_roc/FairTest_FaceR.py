@@ -6,6 +6,7 @@ from datetime import datetime
 from threading import Semaphore
 import time
 import threading
+from django.http import HttpResponse
 #Find the specific student picture
 Control2=True
 def imgloc_one(email_stu):
@@ -27,6 +28,7 @@ def Contro2_change(request):
     mes=request.POST['message']
     if mes:
         Control2==True
+        return HttpResponse(res)
         #Cam_recog()
     elif mes==False:
         Control2==False
