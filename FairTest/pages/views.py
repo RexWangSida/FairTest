@@ -24,4 +24,6 @@ def account(request):
     return render(request,'account.html', {'name': name, 'names':names, 'dates':dates, 'durations':durations})
 
 def testroom(request):
-    return render(request, 'TestRoom.html')
+    if request.method == 'POST':
+        name = request.POST.get('name')
+    return render(request, 'TestRoom.html', {'name':name})

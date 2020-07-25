@@ -6,5 +6,5 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('login', views.login, name='login'),
     re_path(r'^account',views.account, name='account'),
-    path('testroom', views.testroom, name="testroom")
+    re_path(r'^testroom', views.testroom, name="testroom")
 ]
