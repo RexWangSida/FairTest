@@ -10,7 +10,7 @@ from django.http import HttpResponse
 #Find the specific student picture
 Control2=True
 def imgloc_one(email_stu):
-    path = 'face_roc/ImagesAttendence'
+    path = 'tests/ImagesAttendence'
     myList = os.listdir(path)
     print(myList)
     for cl in myList:
@@ -25,13 +25,17 @@ def encoding(Tester_img):
 #Real time camera Face_recognization
 def Contro2_change(request):
     global Control2
-    mes=request.POST['message']
-    if mes=='true':
-        Control2==True
-        return HttpResponse(res)
-        #Cam_recog()
-    elif mes=='false':
-        Control2==False
+    if request.method == 'POST':
+        mes = request.POST.get('message')
+        if mes=='true':
+            Control2==True
+            return HttpResponse('HEY IT WORK')
+            #Cam_recog()
+        elif mes=='false':
+            Control2==False
+    else:
+        return HttpResponse('Error not Post call')
+
     
 def Cam_recog():
     cap = cv2.VideoCapture(0)
@@ -39,7 +43,7 @@ def Cam_recog():
     global Control2
     start_time=0
     warn=0
-    with open('face_roc/TEMP.csv','r+') as f:
+    with open('TEMP.csv','r+') as f:
         Tester_email = f.readline()
         print(Tester_email)
     Tester_img=imgloc_one(Tester_email)
