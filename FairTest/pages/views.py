@@ -21,7 +21,5 @@ def account(request, name):
             durations.append(str(Test.objects.get(tid=i).duration))
         return render(request,'account.html', {'name': name, 'names':names, 'dates':dates, 'durations':durations})
 
-def testroom(request):
-    if request.method == 'POST':
-        name = request.POST.get('name')
+def testroom(request, name):
     return render(request, 'TestRoom.html', {'name':name})

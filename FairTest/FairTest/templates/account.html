@@ -82,18 +82,7 @@
     </footer>
     <script>
       function redirect(){
-        $.ajax({
-          type:'POST',
-          url:'/testroom/{{ name }}',
-          data:{
-            name: '{{ name }}',
-          },
-          headers: {'X-CSRFtoken': $.cookie('csrftoken')},
-          success:function(newdata) {
-          },
-          error:function() {
-          },
-        });
+        window.location.replace('/testroom/'.concat("{{ name }}"));
       }
     </script>
   </body>
