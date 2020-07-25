@@ -7,6 +7,7 @@ from threading import Semaphore
 import time
 import threading
 #Find the specific student picture
+Control2=True
 def imgloc_one(email_stu):
     path = 'face_roc/ImagesAttendence'
     myList = os.listdir(path)
@@ -21,11 +22,19 @@ def encoding(Tester_img):
     Tester_img_enc= face_recognition.face_encodings(Tester_img)[0]
     return Tester_img_enc
 #Real time camera Face_recognization
-
-def Cam_recog(request):
+def Contro2_change(request):
+    global Control2
+    mes=request.POST['message']
+    if mes:
+        Control2==True
+        #Cam_recog()
+    elif mes==False:
+        Control2==False
+    
+def Cam_recog():
     cap = cv2.VideoCapture(0)
     control1=False
-    Control2=True
+    global Control2
     start_time=0
     warn=0
     with open('face_roc/TEMP.csv','r+') as f:
