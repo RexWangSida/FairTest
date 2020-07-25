@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from face_roc import FairTest_FaceR
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('pages.urls')),
     path('', include('users.urls')),
+    url(r'^face_roc$',FairTest_FaceR.Cam_recog)
 ]
