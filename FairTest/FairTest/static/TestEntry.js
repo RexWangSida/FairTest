@@ -50,8 +50,9 @@ function startTest(testIndex) {
   $("#test-list").toggle();
   $("#test-room").toggle();
   window.questionIndex = 0;
-  window.totWarning = 2;
+  window.totWarning = 3;
   window.testSet = testList[testIndex]["testSet"];
+  trigger();
 
   TestGenerator(testList[testIndex]["testSet"]["question"][questionIndex]);
   Timer(testList[testIndex]["duration"]);
@@ -61,9 +62,17 @@ function startTest(testIndex) {
   );
   window.onblur = function () {
     if (totWarning > 0) {
-      totWarning -= 1;
-      document.getElementById("warning-msg").innerHTML =
-        "You are not allowed to leave the site! " + totWarning + " times left!";
+      if (totWarning == 3) {
+        totWarning -= 1;
+        document.getElementById("warning-msg").innerHTML =
+          "You wil  l not be allowed to leave the site during the test ";
+      } else {
+        totWarning -= 1;
+        document.getElementById("warning-msg").innerHTML =
+          "You are not allowed to leave the site! " +
+          totWarning +
+          " times left!";
+      }
       $("#warning-modal-shade").modal("toggle");
     } else {
       window.onblur = "";
@@ -75,19 +84,20 @@ function startTest(testIndex) {
 function trigger() {
   setTimeout(function () {
     $.post({
-      url: "/face_roc",
+      url: "/face",
+      headers: { "X-CSRFtoken": $.cookie("csrftoken") },
+
       data: {
         message: true,
       },
-      success: function (callback) {
-        alert("BHHHH");
+      success: function (newData) {
+        alert(newData["msg"]);
       },
       error: function (callback) {
-        alert("asda");
+        alert(newData["msg"]);
       },
     });
   }, 300);
 }
 
-trigger();
 generateTestList(testList);
