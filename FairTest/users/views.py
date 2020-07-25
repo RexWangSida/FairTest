@@ -9,13 +9,10 @@ def loginAuth(request):
         password = request.POST.get('password')
         if User.objects.filter(email=email).exists():
             if User.objects.get(email = email).password == password:
-                return HttpResponse(json.dumps({'val':0, 'name':User.objects.get(email = email).firstName}), content_type="application/json")
-            return HttpResponse(json.dumps({'val':1, 'msg':'The password you entered does not match our record! Please try again!'}), content_type="application/json")
-        return HttpResponse(json.dumps({'val': 1, 'msg':'The email you entered is not registered with us!'}), content_type="application/json")
-                print(User.objects.get(email = email).firstName)
                 with open('TEMP.csv','w+') as file:
                     writer=csv.writer(file)
                     file.write(f'{email}')
-                return HttpResponse(json.dumps({'name':User.objects.get(email = email).firstName}), content_type="application/json")
-        return HttpResponse(json.dumps({'msg':'The email you entered is not registered with us!'}), content_type="application/json")
+                return HttpResponse(json.dumps({'val':0, 'name':User.objects.get(email = email).firstName}), content_type="application/json")
+            return HttpResponse(json.dumps({'val':1, 'msg':'The password you entered does not match our record! Please try again!'}), content_type="application/json")
+        return HttpResponse(json.dumps({'val': 1, 'msg':'The email you entered is not registered with us!'}), content_type="application/json")
     return render(request, 'login.html')
