@@ -17,9 +17,9 @@
 
 -password: 108740
 
-#Face Recognition
--pip install opencv-python
--pip install cmake
--pip install dlib
--pip install face_recognition
--pip install opencv_python_headless
+# Face Recognition
+- pip install opencv-python
+- pip install cmake
+- pip install dlib
+- pip install face_recognition
+- pip install opencv_python_headless
