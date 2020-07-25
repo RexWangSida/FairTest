@@ -34,7 +34,37 @@
     </form>
   </div>
 </div>
-
+<div class="modal" tabindex="-1" role="dialog" id="warning-modal-shade">
+      <div class="modal-dialog" role="document" id="" warning-modal>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Warning</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="warning-msg">
+            <p>Modal body text goes here.</p >
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+              style="background-color:rgb(245, 129, 96);"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <script>
  function email_click(){
    var email = document.getElementById("email").value;
@@ -44,11 +74,15 @@
        validateLogin(email, password);
     }
     else{
-      alert("You must agree to our policy and check the checkbox below!");
+      document.getElementById("warning-msg").innerHTML =
+                "You must agree to our policy and check the checkbox below!";
+            $("#warning-modal-shade").modal("toggle");
     }
    }
    else{
-     alert("You should use an email!")
+     document.getElementById("warning-msg").innerHTML =
+               "You should use an email!";
+           $("#warning-modal-shade").modal("toggle");
    }
  }
  function validateEmail(email){
@@ -65,25 +99,36 @@ function validateLogin(email,password){
     },
     headers: {'X-CSRFtoken': $.cookie('csrftoken')},
     success:function(data) {
-      $.ajax({
-        type:'POST',
-        url:'/account/'.concat(data.name),
-        data:{
-          name: data.name,
-        },
-        headers: {'X-CSRFtoken': $.cookie('csrftoken')},
-        success:function(newdata) {
-          $("html").html(newdata);
-          window.location.hash = data.name;
-        },
-        error:function() {
+      if(data.val == 0){
+                $.ajax({
+                  type:'POST',
+                  url:'/account/'.concat(data.name),
+                  data:{
+                    name: data.name,
+                  },
+                  headers: {'X-CSRFtoken': $.cookie('csrftoken')},
+                  success:function(newdata) {
+                    $("html").html(newdata);
+                    window.location.hash = data.name;
+                  },
+                  error:function() {
+                  },
+                });
+
+
+              } else {
+                document.getElementById("warning-msg").innerHTML =
+                          data.msg;
+                      $("#warning-modal-shade").modal("toggle");
+                              }},
+      error:function() {
+          document.getElementById("warning-msg").innerHTML =
+                    "The server is off!";
+                $("#warning-modal-shade").modal("toggle");
         },
       });
-    },
-    error:function() {
-      alert("The server is off!")
-    },
-  });
+
 }
 </script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 {% endblock %}
