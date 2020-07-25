@@ -111,9 +111,3 @@ footer {
   table {
   	display: table;
   }
-  table tr {
-  	display: table-cell;
-  }
-  table tr td {
-  	display: block;
-  }
