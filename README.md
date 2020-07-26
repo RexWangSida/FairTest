@@ -19,7 +19,6 @@ Since the project was built in a rush on the hackathon event, it is still under 
 - Smoothier dynamic camera display of facial authentication on the html page.
 - Better UI design.
 - Web deployment
-
 </br>
 
 ## Team & Contributors
