@@ -15,6 +15,13 @@ FairTest uses facial authentification to verify that the user in the camera is t
 
 </br>
 
+## What's next ❓
+Since the project was built in a rush on the hackathon event, it is still under construction. We're still working on the following tasks:
+- Database functionality updates.
+- Smoothier dynamic camera display of facial authentication on the html page.
+- Better UI design.
+- Web deployment
+
 ## Team & Contributors
 | Team Member        | Role(s)                              | Contact Info           |
 | ------------------- |--------------------------------------| ---------------------- |
@@ -29,3 +36,5 @@ FairTest uses facial authentification to verify that the user in the camera is t
 - [Our DevPost](https://devpost.com/software/fairtest) of the project on **SigmaHacks 2.0**
 </br>
 <div align="center"><img src='images/award.png' width="80%" height="80%"></img></div>
+
+_[Last Edited 07/26/2020]_
