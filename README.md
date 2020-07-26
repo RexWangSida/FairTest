@@ -10,7 +10,7 @@ As university students, we noticed that when the education became remote due to 
 | **Sida Wang**       | Full-Stack Developer | wangs132@mcmaster.ca   |
 | **Wei Liu**    | Full-Stack Developer | liuw0407@gmail.com |
 | **Deuce Cao**       | Front-end Developer                       | hq.cao1@gmail.com      |
-| **Charles Zhang**       | Computer Vision Specialist                      | Zhans22@mcmaster.ca     |
+| **Charles Zhang**       | Computer Vision Specialist                      | zhans22@mcmaster.ca     |
 
 ## Award - Best Productivity Hack on [SigmaHacks 2.0](https://sigmahacks.org/) 🎉
 - [Our DevPost](https://devpost.com/software/fairtest) of the project on **SigmaHacks 2.0**
