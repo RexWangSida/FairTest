@@ -3,7 +3,7 @@ import testList from "./TestSet.js";
 import { navBtn } from "./Navigation.js";
 import TestGenerator from "./TestGenerator.js";
 import Timer from "./Timer.js";
-import { openCamera } from "./Camera.js";
+import { openCamera, altImg } from "./Camera.js";
 
 navBtn();
 window.currentTest = -1;
@@ -89,14 +89,13 @@ function triggerStart() {
       data: {
         message: true,
       },
-      success: function (newData) {
-        alert(newData["msg"]);
-      },
+      success: function (newData) {},
       error: function (newData) {
         alert(newData["msg"]);
       },
     });
   }, 300);
+  altImg();
 }
 
 function checkFace() {
@@ -104,21 +103,19 @@ function checkFace() {
 }
 
 function beginCheck() {
-  setTimeout(function () {
-    $.get({
-      url: "/",
-      headers: { "X-CSRFtoken": $.cookie("csrftoken") },
-      success: function (newData) {
-        if (newData["ended"]) {
-          console.log("test ended");
-        } else {
-          beginCheck();
-        }
-      },
-      error: function (newData) {
-        alert(newData["msg"]);
-      },
-    });
-  }, 300);
+  $.get({
+    url: "/",
+    headers: { "X-CSRFtoken": $.cookie("csrftoken") },
+    success: function (newData) {
+      if (newData["ended"]) {
+        console.log("test ended");
+      } else {
+        beginCheck();
+      }
+    },
+    error: function (newData) {
+      alert(newData["msg"]);
+    },
+  });
 }
 generateTestList(testList);

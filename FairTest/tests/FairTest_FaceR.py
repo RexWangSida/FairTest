@@ -9,8 +9,10 @@ import json
 import threading
 from django.http import HttpResponse
 # Find the specific student picture
+
 Control2 = True
 Control3 = True
+
 
 def imgloc_one(email_stu):
     path = 'tests/ImagesAttendence'
@@ -29,14 +31,16 @@ def encoding(Tester_img):
     return Tester_img_enc
 # Real time camera Face_recognization
 
+
 def Contro2_change(request):
     global Control2
     if request.method == 'POST':
         mes = request.POST.get('message')
         if mes == 'true':
             Control2 == True
-            return HttpResponse(json.dumps({"msg": Control2}), content_type="application/json")
             Cam_recog()
+            return HttpResponse(json.dumps({"msg": Control2}), content_type="application/json")
+
         elif mes == 'false':
             Control2 == False
     else:
@@ -44,9 +48,11 @@ def Contro2_change(request):
 
 
 def Cam_recog():
+
     cap = cv2.VideoCapture(0)
     control1 = False
     global Control2
+
     start_time = 0
     warn = 0
     with open('TEMP.csv', 'r+') as f:
@@ -116,7 +122,7 @@ def Cam_recog():
                     (50, 50), cv2.FONT_HERSHEY_COMPLEX, 2, (0, 0, 255), 2)
         #cv2.imshow('Webcam', img)
         cv2.imwrite('FairTest/static/images/rec.jpg', img)
-        cv2.waitKey(1)
+        cv2.waitKey(10)
 # Attence log.csv build
 
 
