@@ -12,12 +12,14 @@ FairTest uses facial authentification to verify that the user in the camera is t
 - **Python face-recognition** library provides essential functionalities to support our facial authentication.
 
 ## Team & Contributors
+<div align="center">
 | Group Member        | Role(s)                              | Contact Info           |
 | ------------------- |--------------------------------------| ---------------------- |
 | **Sida Wang**       | Full-Stack Developer | wangs132@mcmaster.ca   |
 | **Wei Liu**    | Full-Stack Developer | liuw0407@gmail.com |
 | **Deuce Cao**       | Front-end Developer                       | hq.cao1@gmail.com      |
 | **Charles Zhang**       | Computer Vision Specialist                      | zhans22@mcmaster.ca     |
+</div>
 
 ## Award - Best Productivity Hack on [SigmaHacks 2.0](https://sigmahacks.org/) 🎉
 - [Our DevPost](https://devpost.com/software/fairtest) of the project on **SigmaHacks 2.0**
