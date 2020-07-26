@@ -36,4 +36,5 @@ Since the project was built in a rush on the hackathon event, it is still under 
 </br>
 <div align="center"><img src='images/award.png' width="80%" height="80%"></img></div>
 
+</br>
 _[Last Edited 07/26/2020]_
