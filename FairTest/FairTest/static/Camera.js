@@ -27,6 +27,7 @@ export function altImg() {
   var path = img.src;
 
   setInterval(() => {
+    console.log(img.src);
     img.src = path;
-  }, 100);
+  }, 10);
 }

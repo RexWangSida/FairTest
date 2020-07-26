@@ -120,9 +120,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATIC_IM_URL= '/images/rec.jpg'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'FairTest', 'static'),
-    os.path.join(BASE_DIR, 'FairTest', 'templates')
+    os.path.join(BASE_DIR, 'FairTest', 'templates'),
+    os.path.join(BASE_DIR, 'FairTest', 'static_im')
 ]

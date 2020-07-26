@@ -119,10 +119,11 @@ def Cam_recog():
                         warn += 1
 
         cv2.putText(img, 'The Warning chance left '+str(5-warn),
-                    (50, 50), cv2.FONT_HERSHEY_COMPLEX, 2, (0, 0, 255), 2)
+                    (50, 50), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 0, 255), 2)
         #cv2.imshow('Webcam', img)
         cv2.imwrite('FairTest/static/images/rec.jpg', img)
-        cv2.waitKey(10)
+        #cv2.waitKey(1)
+        time.sleep(1)
 # Attence log.csv build
 
 
@@ -139,5 +140,5 @@ def attendence_Scheck(name, message):
             f.writelines(f'\n{name},{message},{dtString}')
 
 
-if __name__ == '__main__':
-    Cam_recog()
+# if __name__ == '__main__':
+#     Cam_recog()

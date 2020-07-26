@@ -1,6 +1,5 @@
 {% extends 'account.html'%}
 {% load static %}
-{% static 'images' as base_url %}
 
 {% block title %}
         <title>Login - FairTest</title>
@@ -53,7 +52,7 @@
           <div class="col">
             <div id="container">
               <video autoplay="true" id="videoElement" style="display: none"></video>
-              <img src="{{base_url}}/{{rec.jpg}}" width=100% height=70%  alt="" id="face">
+              <img src="{% static 'images/rec.jpg' %}" width=100% height=70%  alt="{% static 'images/Logo.png' %}" id="face">
             </div>
           </div>
           <div class="col">
