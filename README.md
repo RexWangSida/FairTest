@@ -1,5 +1,5 @@
 # FairTest 🔍
-Welcome to the repository of FairTest, an award-winning project that brings creative solution to university/shcool online testing.
+Welcome to the repository of FairTest, an award-winning project that brings creative solution to university/school online testing.
 </br>
 
 ## Inspiration 💭
