@@ -18,6 +18,7 @@ FairTest uses facial authentification to verify that the user in the camera is t
 | **Wei Liu**    | Full-Stack Developer | liuw0407@gmail.com |
 | **Deuce Cao**       | Front-end Developer                       | hq.cao1@gmail.com      |
 | **Charles Zhang**       | Computer Vision Specialist                      | zhans22@mcmaster.ca     |
+
 </br></br></br>
 
 ## Award - Best Productivity Hack on [SigmaHacks 2.0](https://sigmahacks.org/) 🎉
