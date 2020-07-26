@@ -13,14 +13,14 @@ FairTest uses facial authentification to verify that the user in the camera is t
 - **Python face-recognition** library provides essential functionalities to support our facial authentication.
 - **Javascript** supports the cursor capture feature.
 
-</br>
-
 ## What's next ❓
 Since the project was built in a rush on the hackathon event, it is still under construction. We're still working on the following tasks:
 - Database functionality updates.
 - Smoothier dynamic camera display of facial authentication on the html page.
 - Better UI design.
 - Web deployment
+
+</br>
 
 ## Team & Contributors
 | Team Member        | Role(s)                              | Contact Info           |
