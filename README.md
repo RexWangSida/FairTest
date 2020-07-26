@@ -7,6 +7,9 @@ As university students, we noticed that when the education became remote due to 
 ## What it does ❓
 FairTest uses facial recognition to verify that the user in the camera is the one to be tested and uses cursor capture to help prevent cheating by getting help from external resources.
 
+## Technical Specification 🛠
+- **Django** as Full-Stack Web Frame 
+
 ## Team & Contributors
 | Group Member        | Role(s)                              | Contact Info           |
 | ------------------- |--------------------------------------| ---------------------- |
