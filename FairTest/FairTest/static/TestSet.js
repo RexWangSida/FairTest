@@ -1,119 +1,116 @@
 var testList = {
   // status: 0 not started, 1 finished, 2 failed, 3 outdated
   0: {
-    name: "test 1",
+    name: "SFWRENG 3DB3 Midterm",
     testId: "t0",
     status: 0,
-    duration: 20,
+    duration: 80,
     testSet: {
-      questionNum: 7,
+      questionNum: 5,
       question: {
         0: {
-          title: "This is question 1",
+          title: "Which of the following schedule results in a write-read conflict?",
           type: 0,
           choices: {
-            0: "A1",
-            1: "A2",
-            2: "A3",
-            3: "A4",
+            0: "T2:R(X)",
+            1: "T2:R(Y)",
+            2: "T1:R(X)",
+            3: "T2:W(X)",
           },
           ans: null,
         },
         1: {
-          title: "This is question 2",
+          title: "What is lock thrashing and when does it occur?",
           type: 1,
           ans: null,
         },
         2: {
-          title: "this is question 3",
+          title: "What is an index on a le of records?",
           type: 0,
           choices: {
-            0: "choice A",
-            1: "choice B",
-            2: "choice C",
+            0: "Data structure",
+            1: "Filr structure",
+            2: "Network structure",
           },
           ans: null,
         },
         3: {
-          title: "This is question 4",
-          type: 0,
-          choices: {
-            0: "A1",
-            1: "A2",
-            2: "A3",
-            3: "A4",
-          },
+          title: "State the two properties of data independence provided in a DBMS. Why are they important ? ",
+          type: 1,
           ans: null,
         },
         4: {
-          title: "This is question 5",
+          title: "Identify a primary key for each relation. For each key, briefly state the assumptions or conditions under which each key would be valid.",
           type: 0,
           choices: {
-            0: "A1",
-            1: "A2",
-            2: "A3",
-            3: "A4",
+            0: "BRANCH",
+            1: "CUSTOMER",
+            2: "LOAN",
+            3: "BORROWER",
           },
-          ans: null,
-        },
-        5: {
-          title: "This is question 6",
-          type: 1,
-          ans: null,
-        },
-        6: {
-          title: "This is question 7",
-          type: 1,
           ans: null,
         },
       },
     },
   },
   1: {
-    name: "test 2",
+    name: "SFWRENG 3DX4 Midterm",
     testId: "t1",
     status: 0,
-    duration: 20,
+    duration: 70,
     testSet: {
-      questionNum: 2,
+      questionNum: 5,
       question: {
         0: {
-          title: "This is question 1 of test 2",
+          title: "Assuming zero initial conditions, what is the Laplace transform of the function",
           type: 0,
           choices: {
-            0: "A1",
-            1: "A2",
-            2: "A3",
-            3: "A4",
+            0: "(7 cos (2 t)",
+            1: "(7 cos (3 t)",
+            2: "(8 cos (2 t)",
+            3: "(8 cos (3 t)",
           },
           ans: null,
         },
         1: {
-          title: "This is question 2 of test 2",
-          type: 0,
-          choices: {
-            0: "A1",
-            1: "A2",
-            2: "A3",
-            3: "A4",
-          },
+          title: "Write down the loop equation(s) that you would solve for the circuit including the equation for Vo.",
+          type: 1,
+          ans: null,
+        },
+        2: {
+          title: "What is the control canonical form state-space representation of G1(s)?",
+          type: 1,
+          ans: null,
+        },
+        3: {
+          title: "How many degrees of freedom does the system have? What are the equations of motion for the system ? ",
+          type: 1,
+          ans: null,
+        },
+        4: {
+          title: "Find the transfer function G(s).",
+          type: 1,
           ans: null,
         },
       },
     },
   },
   2: {
-    name: "test 3",
+    name: "SFWRENG 2S03 Midterm",
     testId: "t2",
     status: 2,
-    duration: 20,
+    duration: 60,
   },
   3: {
-    name: "test 4",
+    name: "MELD 1A03",
     testId: "t3",
     status: 3,
-    duration: 20,
+    duration: 50,
   },
 };
+
+export function getTestSet(test) {
+  testList = test;
+}
 
 export default testList;

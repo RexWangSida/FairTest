@@ -3,8 +3,8 @@ import testList from "./TestSet.js";
 import { navBtn } from "./Navigation.js";
 import TestGenerator from "./TestGenerator.js";
 import Timer from "./Timer.js";
-import { openCamera, altImg } from "./Camera.js";
-
+import { altImg } from "./Camera.js";
+import Chat from './Chat.js';
 navBtn();
 window.currentTest = -1;
 export function generateTestList(testList) {
@@ -46,7 +46,7 @@ function addItem(test) {
 }
 
 function startTest(testIndex) {
-  openCamera();
+  Chat();
   $("#test-list").toggle();
   $("#test-room").toggle();
   window.questionIndex = 0;
@@ -89,7 +89,9 @@ function triggerStart() {
       data: {
         message: true,
       },
-      success: function (newData) {},
+      success: function (newData) {
+        alert(newData['msg'])
+      },
       error: function (newData) {
         alert(newData["msg"]);
       },

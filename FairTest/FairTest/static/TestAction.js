@@ -7,6 +7,7 @@ export default function testFailed() {
   testList[window.currentTest]["status"] = 2;
   closeCamera();
   toggleTest();
+  triggerEnd();
   $("#after-fail").toggle();
 }
 
@@ -25,6 +26,8 @@ export function testSubmitted() {
   testList[window.currentTest]["status"] = 1;
   closeCamera();
   toggleTest();
+  triggerEnd();
+
   $("#after-submit").toggle();
   window.onblur = "";
 }
@@ -36,17 +39,16 @@ export function refresh() {
 function triggerEnd() {
   setTimeout(function () {
     $.post({
-      url: "/",
+      url: "/face",
       headers: { "X-CSRFtoken": $.cookie("csrftoken") },
-
       data: {
         message: false,
       },
       success: function (newData) {
-        alert(newData["msg"]);
+        console.log("Ended");
       },
-      error: function (callback) {
-        alert(newData["msg"]);
+      error: function (newData) {
+        alert("Connection Failed");
       },
     });
   }, 300);

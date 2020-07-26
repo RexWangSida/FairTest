@@ -37,12 +37,12 @@ def Contro2_change(request):
     if request.method == 'POST':
         mes = request.POST.get('message')
         if mes == 'true':
-            Control2 == True
-            Cam_recog()
-            return HttpResponse(json.dumps({"msg": Control2}), content_type="application/json")
+            Control2 = True
+            x=Cam_recog()
+            return HttpResponse(json.dumps({"msg": 'ppppp'}), content_type="application/json")
 
         elif mes == 'false':
-            Control2 == False
+            Control2 = False
     else:
         return HttpResponse(json.dumps({"msg": "Falied"}), content_type="application/json")
 
@@ -119,11 +119,15 @@ def Cam_recog():
                         warn += 1
 
         cv2.putText(img, 'The Warning chance left '+str(5-warn),
-                    (50, 50), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 0, 255), 2)
+                    (50, 50), cv2.FONT_HERSHEY_COMPLEX, 2, (0, 0, 255), 2)
         #cv2.imshow('Webcam', img)
         cv2.imwrite('FairTest/static/images/rec.jpg', img)
         #cv2.waitKey(1)
         time.sleep(1)
+    if warn==6:
+        return "Warn Exceed"
+    else:
+        return "End"
 # Attence log.csv build
 
 
