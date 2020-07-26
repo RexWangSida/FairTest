@@ -10,7 +10,7 @@ FairTest uses facial authentification to verify that the user in the camera is t
 ## Technical Specification 🛠
 - **Django** as Full-Stack Web Frame.
 - **Python face-recognition** library provides essential functionalities to support our facial authentication.
-
+</br>
 ## Team & Contributors
 | Group Member        | Role(s)                              | Contact Info           |
 | ------------------- |--------------------------------------| ---------------------- |
@@ -18,6 +18,7 @@ FairTest uses facial authentification to verify that the user in the camera is t
 | **Wei Liu**    | Full-Stack Developer | liuw0407@gmail.com |
 | **Deuce Cao**       | Front-end Developer                       | hq.cao1@gmail.com      |
 | **Charles Zhang**       | Computer Vision Specialist                      | zhans22@mcmaster.ca     |
+</br></br></br>
 
 ## Award - Best Productivity Hack on [SigmaHacks 2.0](https://sigmahacks.org/) 🎉
 - [Our DevPost](https://devpost.com/software/fairtest) of the project on **SigmaHacks 2.0**
