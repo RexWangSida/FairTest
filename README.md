@@ -30,7 +30,7 @@ Since the project was built in a rush on the hackathon event, it is still under 
 | **Deuce Cao**       | Front-end Developer                       | hq.cao1@gmail.com      |
 | **Charles Zhang**       | Computer Vision Specialist                      | zhans22@mcmaster.ca     |
 <a href="https://github.com/RexWangSida/FairTest/graphs/contributors">
-  <img width="50%" height="50%" src="https://contributors-img.web.app/image?repo=RexWangSida/FairTest" />
+  <img width="80%" height="80%" src="https://contributors-img.web.app/image?repo=RexWangSida/FairTest" />
 </a>
 </br></br>
 
