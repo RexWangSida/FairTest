@@ -34,7 +34,7 @@ Since the project was built in a rush on the hackathon event, it is still under 
 ## Award - Best Productivity Hack on [SigmaHacks 2.0](https://sigmahacks.org/) 🎉
 - [Our DevPost](https://devpost.com/software/fairtest) of the project on **SigmaHacks 2.0**
 </br>
-<div align="center"><img src='images/award.png' width="80%" height="80%"></img></div>
+<div align="center"><img src='images/award.jpg' width="80%" height="80%"></img></div>
 
 </br>
 
