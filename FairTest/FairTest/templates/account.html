@@ -40,7 +40,7 @@
   </nav>
   {% block mainbody %}
   <div align="center" style="margin-top:80px;margin-left:200px;margin-right:200px;">
-    <h1 style="text-align:left; color:rgb(245, 129, 96);">Your Upcoming Tests</h1>
+    <h1 style="text-align:left; color:rgb(245, 129, 96);">Your Test Schedule</h1>
     <div calss="card" style="width: 50rem; margin-top:30px; float:left;">
       <table class="table" style="color:rgb(245, 129, 96);">
         <thead>
@@ -76,7 +76,7 @@
     }
 
     function redirect() {
-      window.location.replace('/testroom/'.concat("{{ name }}"));
+      window.location.replace('/testroom/'.concat("{{ name }}".concat('/').concat("{{ uid }}")));
     }
   </script>
 </body>

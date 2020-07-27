@@ -100,7 +100,7 @@ function validateLogin(email,password){
     headers: {'X-CSRFtoken': $.cookie('csrftoken')},
     success:function(data) {
       if(data.val == 0){
-          window.location.replace("/account/".concat(data.name));
+          window.location.replace("/account/".concat(data.name).concat('/').concat(data.uid));
 
 
               } else {

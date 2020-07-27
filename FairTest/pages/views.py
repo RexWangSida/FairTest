@@ -14,9 +14,9 @@ def login(request):
     return render(request, 'login.html')
 
 
-def account(request, name):
-    if User.objects.filter(firstName=name).exists():
-        testL = User.objects.get(firstName=name).regTests
+def account(request, name, uid):
+    if User.objects.filter(uid=uid).exists():
+        testL = User.objects.get(uid=uid).regTests
         names = []
         dates = []
         durations = []
@@ -24,10 +24,10 @@ def account(request, name):
             names.append(str(Test.objects.get(tid=i).name).strip())
             dates.append(str(Test.objects.get(tid=i).date))
             durations.append(str(Test.objects.get(tid=i).duration))
-        return render(request, 'account.html', {'name': name, 'names': names, 'dates': dates, 'durations': durations})
+        return render(request, 'account.html', {'name': name, 'names': names, 'dates': dates, 'durations': durations, 'uid':uid})
 
 
-def testroom(request, name):
+def testroom(request, name, uid):
     if User.objects.filter(firstName=name).exists():
         testL = User.objects.get(firstName=name).regTests
         testInfos = []
