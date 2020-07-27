@@ -23,17 +23,15 @@ Since the project was built in a rush on the hackathon event, it is still under 
 
 ## Team & Contributors
 
-<a href="https://github.com/RexWangSida/FairTest/graphs/contributors">
-  <img width="50%" height="50%" src="https://contributors-img.web.app/image?repo=RexWangSida/FairTest" />
-</a>
-
 | Team Member        | Role(s)                              | Contact Info           |
 | ------------------- |--------------------------------------| ---------------------- |
 | **Sida Wang**       | Full-Stack Developer | wangs132@mcmaster.ca   |
 | **Wei Liu**    | Full-Stack Developer | liuw0407@gmail.com |
 | **Deuce Cao**       | Front-end Developer                       | hq.cao1@gmail.com      |
 | **Charles Zhang**       | Computer Vision Specialist                      | zhans22@mcmaster.ca     |
-
+<a href="https://github.com/RexWangSida/FairTest/graphs/contributors">
+  <img width="50%" height="50%" src="https://contributors-img.web.app/image?repo=RexWangSida/FairTest" />
+</a>
 </br></br>
 
 ## Award - Best Productivity Hack on [SigmaHacks 2.0](https://sigmahacks.org/) 🎉
