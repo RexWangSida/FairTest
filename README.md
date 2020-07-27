@@ -24,7 +24,7 @@ Since the project was built in a rush on the hackathon event, it is still under 
 ## Team & Contributors
 
 <a href="https://github.com/RexWangSida/FairTest/graphs/contributors">
-  <img style="width:50%; height:50%;" src="https://contributors-img.web.app/image?repo=RexWangSida/FairTest" />
+  <img width="50%" height="50%" src="https://contributors-img.web.app/image?repo=RexWangSida/FairTest" />
 </a>
 
 | Team Member        | Role(s)                              | Contact Info           |
