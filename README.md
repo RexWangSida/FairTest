@@ -22,6 +22,11 @@ Since the project was built in a rush on the hackathon event, it is still under 
 </br>
 
 ## Team & Contributors
+
+<a href="https://github.com/RexWangSida/FairTest/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=RexWangSida/FairTest" />
+</a>
+
 | Team Member        | Role(s)                              | Contact Info           |
 | ------------------- |--------------------------------------| ---------------------- |
 | **Sida Wang**       | Full-Stack Developer | wangs132@mcmaster.ca   |
