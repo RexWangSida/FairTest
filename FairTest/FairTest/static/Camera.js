@@ -1,7 +1,3 @@
-var videoTracks;
-var video = document.querySelector("#videoElement");
-
-
 export function altImg() {
   var img = document.getElementById("face");
 

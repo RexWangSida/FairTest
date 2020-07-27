@@ -2,6 +2,7 @@ from django.shortcuts import render
 from tests.models import Test
 from users.models import User
 import json
+from django.utils.safestring import SafeString
 # Create your views here.
 
 
@@ -36,8 +37,9 @@ def testroom(request, name):
                 'tid': str(Test.objects.get(tid=i).tid).strip(),
                 'status': int(Test.objects.get(tid=i).status),
                 'duration': int(Test.objects.get(tid=i).duration),
-                'testSet': json.dumps(Test.objects.get(tid=i).content),
+                'testSet': Test.objects.get(tid=i).content,
             }
-            testInfos.append(json.dumps(testInfo))
 
-        return render(request, 'TestRoom.html', {'name': name, 'testInfos': json.dumps({k: v for k, v in enumerate(testInfos)})})
+            testInfos.append(testInfo)
+
+        return render(request, 'TestRoom.html', {'name': name, 'testInfos': {k: v for k, v in enumerate(testInfos)}})
