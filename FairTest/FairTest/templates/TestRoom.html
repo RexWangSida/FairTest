@@ -192,13 +192,6 @@
       <div id="list"></div>
     </ul>
 
-    <script>
-      var testInfos = "{{ testInfos|escapejs }}";
-      // JSON.parse(document.getElementById('testInfos').textContent);
-      
-      console.log(testInfos)
-    </script>
-
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
@@ -212,6 +205,27 @@
     ></script>
     <script type="text/javascript" src="/static/jquery.cookie.js"></script>
 
+
+    <script type="module">
+      setTimeout(function () {
+    $.post({
+      url: "/test",
+      headers: { "X-CSRFtoken": $.cookie("csrftoken") },
+      data: {
+        name: "{{ name }}"
+      },
+      success: function (newData) {
+        console.log(newData['testInfos'])
+      },
+      error: function (newData) {
+        alert("failed");
+      },
+    });
+  }, 300);
+      // console.log(JSON.parse(questionSet))
+    </script>
+
+    
     
     <script type="module" src={% static 'Navigation.js' %}></script>
     <script type="module" src={% static 'TestEntry.js' %}></script>
