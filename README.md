@@ -27,7 +27,7 @@ Since the project was built in a rush on the hackathon event, it is still under 
 | ------------------- |--------------------------------------| ---------------------- |
 | **Sida Wang**       | Full-Stack Developer | wangs132@mcmaster.ca   |
 | **Wei Liu**    | Full-Stack Developer | liuw0407@gmail.com |
-| **Deuce Cao**       | Front-end Developer                       | hq.cao1@gmail.com      |
+| **Deuce Cao**       | Front-End Developer                       | hq.cao1@gmail.com      |
 | **Charles Zhang**       | Computer Vision Specialist                      | zhans22@mcmaster.ca     |
 <a href="https://github.com/RexWangSida/FairTest/graphs/contributors">
   <img width="80%" height="80%" src="https://contributors-img.web.app/image?repo=RexWangSida/FairTest" />
