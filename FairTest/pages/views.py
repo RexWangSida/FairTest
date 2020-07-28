@@ -30,16 +30,30 @@ def account(request, name, uid):
 def testroom(request, name, uid):
     if User.objects.filter(firstName=name).exists():
         testL = User.objects.get(firstName=name).regTests
-        testInfos = []
+        testInfos = {}
+        indexi = 0
         for i in testL:
             testInfo = {
                 'name': str(Test.objects.get(tid=i).name).strip(),
                 'tid': str(Test.objects.get(tid=i).tid).strip(),
                 'status': int(Test.objects.get(tid=i).status),
                 'duration': int(Test.objects.get(tid=i).duration),
-                'testSet': Test.objects.get(tid=i).content,
+                'questionSet': {}
             }
-
-            testInfos.append(testInfo)
-
-        return render(request, 'TestRoom.html', {'name': name, 'testInfos': {k: v for k, v in enumerate(testInfos)}})
+            questions = Test.objects.get(tid=i).question_set.all()
+            indexj = 0
+            for question in questions:
+                testInfo['questionSet'][str(indexj)] = {}
+                testInfo['questionSet'][str(indexj)]['title'] = question.question
+                testInfo['questionSet'][str(indexj)]['choices'] = {
+                    '0': question.A,
+                    '1': question.B,
+                    '2': question.C,
+                    '3': question.D
+                }
+                testInfo['questionSet'][str(indexj)]['ans'] = None
+                indexj += 1
+            testInfos[str(indexi)] = testInfo
+            indexi += 1
+        print(testInfos)
+        return render(request, 'TestRoom.html', {'name': name, 'testInfos': testInfos})
