@@ -30,7 +30,7 @@ Since the project was built in a rush on the hackathon event, it is still under 
 - Web deployment
 </br>
 
-## <a name = "team">Team & Contributors</a>
+## <a name = "team">Team & Contributors 👨‍👨‍👦</a>
 
 | Team Member        | Role(s)                              | Contact Info           |
 | ------------------- |--------------------------------------| ---------------------- |
