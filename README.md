@@ -6,6 +6,7 @@ Welcome to the repository of FairTest, an award-winning project that brings crea
 - [**Inspiration**](#inspiration)
 - [**What it does?**](#does)
 - [**Use of Softwares**](#use)
+- [**Try FairTest**](#try)
 - [**What's next?**](#next)
 - [**Team & Contributors**](#team)
 - [**Award**](#team)
@@ -21,6 +22,10 @@ FairTest uses facial authentification to verify that the user in the camera is t
 - **Django** as Full-Stack Web Frame.
 - **Python face-recognition** library provides essential functionalities to support our facial authentication.
 - **Javascript** supports the cursor capture feature.
+
+## <a name = "does">Try FairTest 🔧</a>
+- To try FairTest, there are several python libraries needed to be installed, which are .
+
 
 ## <a name = "next">What's next ❓</a>
 Since the project was built in a rush on the hackathon event, it is still under construction. We're still working on the following tasks:
