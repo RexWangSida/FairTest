@@ -2,7 +2,7 @@
 Welcome to the repository of FairTest, an award-winning project that brings creative solution to university/school online testing.
 </br>
 
-## Table of Content
+## Table of Content 📃
 - [**Inspiration**](#inspiration)
 - [**What it does?**](#does)
 - [**Use of Softwares**](#use)
