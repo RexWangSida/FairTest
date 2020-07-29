@@ -207,28 +207,14 @@
 
 
     <script type="module">
-      setTimeout(function () {
-    $.post({
-      url: "/test",
-      headers: { "X-CSRFtoken": $.cookie("csrftoken") },
-      data: {
-        name: "{{ name }}"
-      },
-      success: function (newData) {
-        console.log(newData['testInfos'])
-      },
-      error: function (newData) {
-        alert("failed");
-      },
-    });
-  }, 300);
-      // console.log(JSON.parse(questionSet))
-    </script>
+      window.name = "{{ name }}"
+          </script>
 
     
     
-    <script type="module" src={% static 'Navigation.js' %}></script>
     <script type="module" src={% static 'TestEntry.js' %}></script>
+    <script type="module" src={% static 'Navigation.js' %}></script>
+
     <script src={% static 'Camera.js' %}></script>
 
 {% endblock %}

@@ -1,32 +1,28 @@
 import { toggleTest } from "./Navigation.js";
-import testList from "./TestSet.js";
 import { generateTestList } from "./TestEntry.js";
 
-
 export default function testFailed() {
-  testList[window.currentTest]["status"] = 2;
+  testList[currentTest]["status"] = 2;
   toggleTest();
   triggerEnd();
   $("#after-fail").toggle();
 }
 
 export function getAns() {
-  if (testSet["question"][questionIndex]["type"] == 1) {
+  if (testSet[questionIndex]["choices"][0] === null) {
     var ans = document.getElementById("textAns").value;
-  } else if (testSet["question"][questionIndex]["type"] == 0) {
+  } else {
     var ans = document.querySelector("input[name=mc]:checked");
     ans = ans == null ? -1 : ans.value;
   }
 
-  testSet["question"][questionIndex]["ans"] = ans;
+  testSet[questionIndex]["ans"] = ans;
 }
 
 export function testSubmitted() {
-  testList[window.currentTest]["status"] = 1;
-
+  testList[currentTest]["status"] = 1;
   toggleTest();
   triggerEnd();
-
   $("#after-submit").toggle();
   window.onblur = "";
 }
@@ -43,11 +39,29 @@ function triggerEnd() {
       data: {
         message: false,
       },
-      success: function (newData) {
+      success: function () {
         console.log("Ended");
       },
+      error: function () {
+        console.log("Connection Failed");
+      },
+    });
+  }, 300);
+
+  setTimeout(function () {
+    $.post({
+      url: "/updateTest",
+      headers: {
+        "X-CSRFtoken": $.cookie("csrftoken"),
+      },
+      data: {
+        msg: JSON.stringify(testList),
+      },
+      success: function (newData) {
+        console.log(newData["msg"]);
+      },
       error: function (newData) {
-        alert("Connection Failed");
+        console.log(newData["msg"]);
       },
     });
   }, 300);

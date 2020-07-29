@@ -64,6 +64,11 @@ def getTest(request):
                 testInfo['questionSet'][str(indexj)]['ans'] = None
                 indexj += 1
             testInfos[str(indexi)] = testInfo
-            print(testInfos)
             indexi += 1
         return HttpResponse(json.dumps({"testInfos": testInfos}), content_type="application/json")
+    return HttpResponse(json.dumps({"msg": "It is not a post request"}), content_type="application/json")
+
+
+def updateTest(request):
+    testResult = json.loads(request.POST.get('msg'))
+    return HttpResponse(json.dumps({"msg": "Test result updated"}), content_type="application/json")

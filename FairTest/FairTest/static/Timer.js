@@ -1,7 +1,6 @@
 import { testSubmitted } from "./TestAction.js";
 export default function Timer(duration) {
   var timer = duration * 60;
-  console.log(timer);
   var interval = setInterval(function () {
     var hours = parseInt(timer / 3600, 10);
     var minutes = parseInt((timer - hours * 3600) / 60, 10);

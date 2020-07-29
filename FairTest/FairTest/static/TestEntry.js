@@ -1,11 +1,27 @@
 import testFailed from "./TestAction.js";
-import testList from "./TestSet.js";
+// import testList from "./TestSet.js";
 import { navBtn } from "./Navigation.js";
 import TestGenerator from "./TestGenerator.js";
 import Timer from "./Timer.js";
 import { altImg } from "./Camera.js";
-import Chat from './Chat.js';
-navBtn();
+import Chat from "./Chat.js";
+window.testList;
+setTimeout(function () {
+  $.post({
+    url: "/getTest",
+    headers: { "X-CSRFtoken": $.cookie("csrftoken") },
+    data: {
+      name: name,
+    },
+    success: function (newData) {
+      newData["testInfos"];
+      window.testList = newData["testInfos"];
+    },
+    error: function () {
+      alert("failed");
+    },
+  });
+}, 0);
 window.currentTest = -1;
 export function generateTestList(testList) {
   document.getElementById("list").innerHTML = "";
@@ -13,9 +29,9 @@ export function generateTestList(testList) {
     addItem(testList[test]);
     if (testList[test]["status"] == 0) {
       document
-        .getElementById(testList[test]["testId"])
+        .getElementById(testList[test]["tid"])
         .addEventListener("click", function (e) {
-          var testIndex = parseInt(e.srcElement.id.replace("t", ""));
+          var testIndex = parseInt(e.srcElement.id.replace("t", "") - 1);
           startTest(testIndex);
           currentTest = testIndex;
         });
@@ -27,7 +43,7 @@ function addItem(test) {
   var item = document.createElement("a");
   item.classList.add("list-group-item");
   item.classList.add("list-group-item-action");
-  item.id = test["testId"];
+  item.id = test["tid"];
   if (test["status"] != 0) {
     item.classList.add("disabled");
     item.innerHTML = test["name"];
@@ -51,14 +67,12 @@ function startTest(testIndex) {
   $("#test-room").toggle();
   window.questionIndex = 0;
   window.totWarning = 3;
-  window.testSet = testList[testIndex]["testSet"];
+  window.testSet = testList[testIndex]["questionSet"];
   triggerStart();
-  TestGenerator(testList[testIndex]["testSet"]["question"][questionIndex]);
+  currentTest = testIndex;
+  TestGenerator(testList[testIndex]["questionSet"][questionIndex]);
   Timer(testList[testIndex]["duration"]);
-  progBar.setAttribute(
-    "style",
-    "width:" + questionIndex + (1 / testSet["questionNum"]) * 100 + "%"
-  );
+  progBar.setAttribute("style", "width:" + questionIndex * 100 + "%");
   window.onblur = function () {
     if (totWarning > 0) {
       if (totWarning == 3) {
@@ -90,34 +104,17 @@ function triggerStart() {
         message: true,
       },
       success: function (newData) {
-        alert(newData['msg'])
+        console.log(newData["msg"]);
       },
-      error: function (newData) {
-        alert(newData["msg"]);
+      error: function () {
+        console.log("Failed");
       },
     });
   }, 300);
   altImg();
 }
 
-function checkFace() {
-  beginCheck();
-}
-
-function beginCheck() {
-  $.get({
-    url: "/",
-    headers: { "X-CSRFtoken": $.cookie("csrftoken") },
-    success: function (newData) {
-      if (newData["ended"]) {
-        console.log("test ended");
-      } else {
-        beginCheck();
-      }
-    },
-    error: function (newData) {
-      alert(newData["msg"]);
-    },
-  });
-}
-generateTestList(testList);
+setTimeout(function () {
+  generateTestList(testList);
+  navBtn();
+}, 300);

@@ -4,7 +4,6 @@ $("#after-submit").toggle();
 $("#after-fail").toggle();
 $("#test-room").toggle();
 var progBar = document.getElementById("progBar");
-
 $(".home-btn").on("click", function () {
   if ($("#after-submit").is(":visible")) $("#after-submit").toggle();
   if ($("#after-fail").is(":visible")) $("#after-fail").toggle();
@@ -17,25 +16,26 @@ export function navBtn() {
     getAns();
     if (questionIndex <= 0) {
     } else {
+      var questionNum = Object.keys(testSet).length;
       questionIndex -= 1;
-      TestGenerator(testSet["question"][questionIndex]);
+      TestGenerator(testSet[questionIndex]);
       progBar.setAttribute(
         "style",
-        "width:" + (questionIndex / (testSet["questionNum"] - 1)) * 100 + "%"
+        "width:" + (questionIndex / questionNum) * 100 + "%"
       );
     }
-    console.log(questionIndex);
   });
 
   $("#next-q").on("click", function () {
     getAns();
-    if (questionIndex >= testSet["questionNum"] - 1) {
+    var questionNum = Object.keys(testSet).length;
+    if (questionIndex >= questionNum - 1) {
     } else {
       questionIndex += 1;
-      TestGenerator(testSet["question"][questionIndex]);
+      TestGenerator(testSet[questionIndex]);
       progBar.setAttribute(
         "style",
-        "width:" + ((questionIndex + 1) / testSet["questionNum"]) * 100 + "%"
+        "width:" + (questionIndex / (questionNum - 1)) * 100 + "%"
       );
     }
   });

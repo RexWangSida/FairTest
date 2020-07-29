@@ -1,14 +1,14 @@
 // 0 multiple choice, 1 short answer
 export default function TestGenerator(question) {
   setTitle(question);
-  if (question["type"] == 0) {
+  if (question["choices"][0] !== null) {
     multiChoice(question["choices"]);
     if (question["ans"] !== null && question["ans"] >= 0) {
       document
         .getElementById(question["ans"])
         .setAttribute("checked", "checked");
     }
-  } else if (question["type"]) {
+  } else {
     shortAns();
     if (question["ans"] !== null) {
       document.getElementById("textAns").value = question["ans"];
