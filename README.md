@@ -55,4 +55,6 @@ Since the project was built in a rush on the hackathon event, it is still under 
 
 </br>
 - [See all award-winning projects on **SigmaHacks 2.0**](https://sigmahacks-2.devpost.com/project-gallery).
+
+</ br>
 _[Last Edited 07/26/2020]_
