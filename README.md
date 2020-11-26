@@ -54,6 +54,7 @@ Since the project was built in a rush on the hackathon event, it is still under 
 <div align="center"><img src='images/award.jpg' width="80%" height="80%"></img></div>
 
 </br>
+
 - [See all award-winning projects on SigmaHacks 2.0](https://sigmahacks-2.devpost.com/project-gallery).
 
 </ br>
